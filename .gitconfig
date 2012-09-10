@@ -7,3 +7,5 @@
 	st = status
 	df = diff
 	co = checkout
+[core]
+	editor = vi
