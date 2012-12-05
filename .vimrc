@@ -63,6 +63,9 @@ set pastetoggle=<F2>
 " change the mapleader from \ to ,
 let mapleader=","
 
+" include lines numbers
+set number
+
 " select a colorscheme
 " http://hcalves.deviantart.com/art/Mustang-Vim-Colorscheme-98974484
 colorscheme mustang
