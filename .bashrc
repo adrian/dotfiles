@@ -37,7 +37,7 @@ GIT_PS1_SHOWDIRTYSTATE=1
 PROMPT="\u@\h:\w\$(__git_ps1 ' [%s]')\n\$ "
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-PS1="$TITLEBAR\[$(tput bold)\]\[$(tput setaf 2)\]\u@\h\[$(tput setaf 7)\] \[$(tput setaf 4)\]\w\[$(tput setaf 3)\]\$(__git_ps1 ' (%s)')\n$ \[$(tput sgr0)\]"
+PS1="$TITLEBAR\[$(tput bold)\]\[$(tput setaf 2)\]\u@\h\[$(tput setaf 7)\] \[$(tput setaf 4)\]\w\[$(tput setaf 3)\]\$(__git_ps1 ' (%s)')\n\\$ \[$(tput sgr0)\]"
 
 # .bashrc.local is not kept in version control
 # intended for machine specific changes
