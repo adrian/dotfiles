@@ -6,6 +6,10 @@
 [alias]
     st = status
     df = diff
+    dc = diff --cached
     co = checkout
+    cm = commit
+    ca = commit --amend
+    rv = review
 [core]
     editor = vi
