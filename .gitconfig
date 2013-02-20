@@ -1,11 +1,11 @@
 [user]
-	name = Adrian Smith
-	email = adrian@17od.com
+    name = Adrian Smith
+    email = adrian@17od.com
 [color]
-	ui = true
+    ui = true
 [alias]
-	st = status
-	df = diff
-	co = checkout
+    st = status
+    df = diff
+    co = checkout
 [core]
-	editor = vi
+    editor = vi
