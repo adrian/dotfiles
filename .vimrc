@@ -46,7 +46,13 @@ set smartcase           " ignore case unless the search term has uppercase
 
 "set nowrapscan          " don't wrap searching past end of buffer
 
-set colorcolumn=80      " highlight column 80
+" Color column 80. colorcolum is supported from 7.3. For older versions color
+" any characters that extend past 80 chars.
+if exists('+colorcolumn')
+    set colorcolumn=80
+else
+    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+endif
 
 " show whitespace
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
