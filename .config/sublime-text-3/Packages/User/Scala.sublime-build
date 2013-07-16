@@ -1,0 +1,4 @@
+{
+	"shell_cmd": "scalac $file",
+	"selector": "source.scala"
+}
