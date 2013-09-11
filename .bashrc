@@ -40,6 +40,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+# include git bash completion scripts on OS X
+if [[ $OSTYPE == darwin* ]]; then
+    if [ -f /usr/share/git-core/git-completion.bash ]; then
+        . /usr/share/git-core/git-completion.bash
+    fi
+    if [ -f /usr/share/git-core/git-prompt.sh ]; then
+        . /usr/share/git-core/git-prompt.sh
+    fi
+fi
+
 export EDITOR=vi
 
 # From http://www.dvhart.com/tag/git/

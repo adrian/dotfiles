@@ -13,7 +13,12 @@ for SOURCE_FILE in $FILES; do
     else
         mkdir -p $(dirname $TARGET_FILE)
         rm -f $TARGET_FILE
-        ln -s $(readlink -e $SOURCE_FILE) $TARGET_FILE
+        # the version of readlink on OS X doesn't have a -e option so use perl instead
+        if [[ $OSTYPE == darwin* ]]; then
+            ln -s $(perl -e 'use Cwd "abs_path";print abs_path(shift)' $SOURCE_FILE) $TARGET_FILE
+        else
+            ln -s $(readlink -e $SOURCE_FILE) $TARGET_FILE
+        fi
         printf -- "-> \e[1;32m$TARGET_FILE\e[0m done\n"
     fi
 done
