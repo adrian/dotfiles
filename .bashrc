@@ -46,11 +46,15 @@ if [[ $OSTYPE == darwin* ]]; then
         . /usr/share/git-core/git-completion.bash
     elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
         . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
+    elif [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
+        . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
     fi
     if [ -f /usr/share/git-core/git-prompt.sh ]; then
         . /usr/share/git-core/git-prompt.sh
     elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh ]; then
         . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
+    elif [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh ]; then
+        . /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
     fi
 fi
 
