@@ -13,3 +13,5 @@
     rv = review
 [core]
     editor = vi
+[push]
+	default = simple
