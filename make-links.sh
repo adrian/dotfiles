@@ -13,9 +13,9 @@ for SOURCE_FILE in $FILES; do
     else
         mkdir -p $(dirname $TARGET_FILE)
         rm -f $TARGET_FILE
-        # the version of readlink on OS X doesn't have a -e option so use perl instead
+        # the version of readlink on OS X doesn't have a -e option so use python instead
         if [[ $OSTYPE == darwin* ]]; then
-            ln -s $(perl -e 'use Cwd "abs_path";print abs_path(shift)' $SOURCE_FILE) $TARGET_FILE
+            ln -s $(python -c "import os, sys; print os.path.abspath(sys.argv[1])" $SOURCE_FILE) $TARGET_FILE
         else
             ln -s $(readlink -e $SOURCE_FILE) $TARGET_FILE
         fi
