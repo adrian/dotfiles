@@ -1,7 +1,3 @@
-" Initialise the pathogen plugin
-call pathogen#infect()
-call pathogen#helptags()
-
 " turn on syntax highlighting according to the current value of 'filetype'
 syntax on
 
