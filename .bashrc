@@ -42,14 +42,19 @@ fi
 
 # include git bash completion scripts on OS X
 if [[ $OSTYPE == darwin* ]]; then
-    if [ -f /usr/share/git-core/git-completion.bash ]; then
+    if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+        . /usr/local/etc/bash_completion.d/git-completion.bash
+    elif [ -f /usr/share/git-core/git-completion.bash ]; then
         . /usr/share/git-core/git-completion.bash
     elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash ]; then
         . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-completion.bash
     elif [ -f /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash ]; then
         . /Library/Developer/CommandLineTools/usr/share/git-core/git-completion.bash
     fi
-    if [ -f /usr/share/git-core/git-prompt.sh ]; then
+
+    if [ -f /usr/local/etc/bash_completion.d/git-prompt.sh ]; then
+        . /usr/local/etc/bash_completion.d/git-prompt.sh
+    elif [ -f /usr/share/git-core/git-prompt.sh ]; then
         . /usr/share/git-core/git-prompt.sh
     elif [ -f /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh ]; then
         . /Applications/Xcode.app/Contents/Developer/usr/share/git-core/git-prompt.sh
@@ -68,9 +73,10 @@ GIT_PS1_SHOWDIRTYSTATE=1
 PROMPT="\u@\h:\w\$(__git_ps1 ' [%s]')\n\$ "
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-PS1="$TITLEBAR\[$(tput bold)\]\[$(tput setaf 2)\]\u@\h\[$(tput setaf 7)\] \[$(tput setaf 4)\]\w\[$(tput setaf 3)\]\$(__git_ps1 ' (%s)')\n\\$ \[$(tput sgr0)\]"
+if [[ $- == *i* ]]; then   # is this an interactive shell
+  PS1="$TITLEBAR\[$(tput bold)\]\[$(tput setaf 2)\]\u@\h\[$(tput setaf 7)\] \[$(tput setaf 4)\]\w\[$(tput setaf 3)\]\$(__git_ps1 ' (%s)')\n\\$ \[$(tput sgr0)\]"
+fi
 
 # .bashrc.local is not kept in version control
 # intended for machine specific changes
 [ ! -f ~/.bashrc.local ] || . ~/.bashrc.local
-
