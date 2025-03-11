@@ -1,6 +1,8 @@
 [user]
     name = Adrian Smith
     email = adrian@17od.com
+[init]
+    defaultBranch = main
 [color]
     ui = true
 [alias]

@@ -77,6 +77,5 @@ if [[ $- == *i* ]]; then   # is this an interactive shell
   PS1="$TITLEBAR\[$(tput bold)\]\[$(tput setaf 2)\]\u@\h\[$(tput setaf 7)\] \[$(tput setaf 4)\]\w\[$(tput setaf 3)\]\$(__git_ps1 ' (%s)')\n\\$ \[$(tput sgr0)\]"
 fi
 
-# .bashrc.local is not kept in version control
-# intended for machine specific changes
-[ ! -f ~/.bashrc.local ] || . ~/.bashrc.local
+# Local configuration
+. "$HOME/.local/bin/env"

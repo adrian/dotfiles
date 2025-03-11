@@ -22,3 +22,6 @@ for SOURCE_FILE in $FILES; do
         printf -- "-> \e[1;32m$TARGET_FILE\e[0m done\n"
     fi
 done
+
+# create VIM backup directory
+mkdir ~/bak
