@@ -1,14 +1,15 @@
 # update prompt to include git branch name and working copy state
 autoload -Uz vcs_info
 precmd() { vcs_info }
-zstyle ':vcs_info:git:*' formats '%b '
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr '+'
-zstyle ':vcs_info:git:*' unstagedstr '!'
-zstyle ':vcs_info:git:*' formats '%b%u%c '
-zstyle ':vcs_info:git:*' actionformats '%b%u%c '
 setopt PROMPT_SUBST
-PROMPT='%F{cyan}%~%f %F{green}${vcs_info_msg_0_}%f$ '
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr '%F{green}+%f'
+zstyle ':vcs_info:git:*' unstagedstr '%F{red}!%f'
+# Normal state: branch_name + status
+zstyle ':vcs_info:git:*' formats '(%b)%u%c '
+# Action state (merge/rebase): branch_name|ACTION + status
+zstyle ':vcs_info:git:*' actionformats '(%b|%F{yellow}%a%f)%u%c '
+PROMPT='%F{cyan}%~%f ${vcs_info_msg_0_}$ '
 
 # colorize different file types
 export CLICOLOR=1
