@@ -29,7 +29,7 @@ alias copy="cp"
 alias f='find . | grep'
 
 # IP alias and functions
-alias ip="ifconfig -a | egrep -A 7 '^en0' | grep inet | grep -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])' | head -n 1"
+#alias ip="ifconfig -a | egrep -A 7 '^en0' | grep inet | grep -oE '((1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])\.){3}(1?[0-9][0-9]?|2[0-4][0-9]|25[0-5])' | head -n 1"
 alias myip="curl -s http://checkip.dyndns.org/ | sed 's/[a-zA-Z<>/ :]//g'"
 
 # docker aliases
@@ -44,3 +44,11 @@ alias path='echo; tr ":" "\n" <<< "$PATH"; echo;'
 # Home and End keys to start and end of line
 bindkey '\e[H'    beginning-of-line
 bindkey '\e[F'    end-of-line
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Local Python
+export PATH=$PATH:/Users/adrian/Library/Python/3.10/bin
